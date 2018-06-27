@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "mysamplemicroprofile-service"
+  name: "portfolio-service"
 spec:
   # if your cluster supports it, uncomment the following to automatically create
   # an external load-balanced IP for the frontend service.
@@ -15,12 +15,12 @@ spec:
     port: 9443
 
   selector:
-    app: "mysamplemicroprofile-selector"
+    app: "portfolio-selector"
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: "mysamplemicroprofile-deployment"
+  name: "portfolio-deployment"
 spec:
   # this replicas value is default
   # modify it according to your case
@@ -28,14 +28,14 @@ spec:
   template:
     metadata:
       labels:
-        app: "mysamplemicroprofile-selector"
+        app: "portfolio-selector"
     spec:
       containers:
-      - name: mysamplemicroprofile
-        image: mysamplemicroprofile:latest
+      - name: portfolio
+        image: portfolio:latest
         readinessProbe:
           httpGet:
-            path: /mysamplemicroprofilemicroprofile/health
+            path: /portfolio/health
             port: 9080
           initialDelaySeconds: 20
         # resources:

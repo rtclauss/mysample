@@ -21,7 +21,7 @@ spec:
 {{ else }}
         readinessProbe:
           httpGet:
-            path: /mysamplemicroprofilemicroprofile/health
+            path: /portfolio/health
             port: 9080
           initialDelaySeconds: 20
 {{ end }}

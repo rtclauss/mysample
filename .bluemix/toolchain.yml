@@ -6,7 +6,7 @@ required:
  - repo
 
 toolchain:
-  name: mysamplemicroprofile
+  name: portfolio
 
 # Github repos
 repo:
@@ -46,7 +46,7 @@ deploy:
     $ref: deploy.json
   service-category: pipeline
   parameters:
-    app-name: mysamplemicroprofile
+    app-name: portfolio
     dev-space: "{{space}}"
     dev-organization: "{{organization}}"
     dev-region: "{{region}}"

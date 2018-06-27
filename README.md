@@ -32,7 +32,8 @@ The application is configured to provide JAX-RS REST capabilities, JNDI, JSON pa
 These capabilities are provided through dependencies in the pom.xml file and Liberty features enabled in the server config file found in `src/main/liberty/config/server.xml`.
 
 ### Project contents
-The microservice application has a health endpoint which is accessible at `<host>:<port>/mysamplemicroprofilemicroprofile/health`. The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the pom.xml file and exposed to the CLI in the cli-config.yml file.
+The microservice application has a health endpoint which is accessible at `<host>:<port>/portfolio/health`. The context 
+root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the pom.xml file and exposed to the CLI in the cli-config.yml file.
 
 The project contains IBM Cloud specific files that are used to deploy the application as part of a IBM Cloud DevOps flow. The `.bluemix` directory contains files used to define the IBM Cloud toolchain and pipeline for your application. The `manifest.yml` file specifies the name of your application in IBM Cloud, the timeout value during deployment and which services to bind to.
 
