@@ -26,7 +26,7 @@
         <feature>logstashCollector-1.0</feature>
     </featureManager>
 
-    <logging traceSpecification="*=info" consoleLogLevel="INFO"/>
+    <logging traceSpecification="*=info:app.manager*=all:com.ibm.ws.config.*=all" consoleLogLevel="INFO"/>
 
     <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
       id="defaultHttpEndpoint" host="*" />
