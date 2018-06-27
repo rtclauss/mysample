@@ -1,4 +1,4 @@
-FROM websphere-liberty:webProfile7
+FROM websphere-liberty:microprofile
 MAINTAINER IBM Java engineering at IBM Cloud
 COPY /target/liberty/wlp/usr/servers/defaultServer /config/
 COPY /target/liberty/wlp/usr/shared/resources /config/resources/
