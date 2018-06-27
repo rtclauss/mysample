@@ -34,33 +34,93 @@ spec:
             value: "{{ .Values.service.servicePort }}"
           - name: APPLICATION_NAME
             value: "{{ .Release.Name }}"
-          - name: IBM_APM_SERVER_URL
+          - name: JDBC_HOST
             valueFrom:
               secretKeyRef:
-                name: apm-server-config
-                key: ibm_apm_server_url
-                optional: true
-          - name: IBM_APM_KEYFILE
+                name: db2
+                key: host
+          - name: JDBC_PORT
             valueFrom:
               secretKeyRef:
-                name: apm-server-config
-                key: ibm_apm_keyfile
-                optional: true
-          - name: IBM_APM_KEYFILE_PASSWORD
+                name: db2
+                key: port
+          - name: JDBC_DB
             valueFrom:
               secretKeyRef:
-                name: apm-server-config
-                key: ibm_apm_keyfile_password
-                optional: true
-          - name: IBM_APM_INGRESS_URL
+                name: db2
+                key: db
+          - name: JDBC_ID
             valueFrom:
               secretKeyRef:
-                name: apm-server-config
-                key: ibm_apm_ingress_url
-                optional: true
-          - name: IBM_APM_ACCESS_TOKEN
+                name: db2
+                key: id
+          - name: JDBC_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: apm-server-config
-                key: ibm_apm_access_token
-                optional: true
+                name: db2
+                key: pwd
+          - name: MQ_ID
+            valueFrom:
+              secretKeyRef:
+                name: mq
+                key: id
+          - name: MQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mq
+                key: pwd
+          - name: MQ_HOST
+            valueFrom:
+              secretKeyRef:
+                name: mq
+                key: host
+          - name: MQ_PORT
+            valueFrom:
+              secretKeyRef:
+                name: mq
+                key: port
+          - name: MQ_CHANNEL
+            valueFrom:
+              secretKeyRef:
+                name: mq
+                key: channel
+          - name: MQ_QUEUE_MANAGER
+            valueFrom:
+              secretKeyRef:
+                name: mq
+                key: queue-manager
+          - name: MQ_QUEUE
+            valueFrom:
+               secretKeyRef:
+                 name: mq
+                 key: queue
+          - name: WATSON_URL
+            valueFrom:
+              secretKeyRef:
+                name: watson
+                key: url
+          - name: WATSON_ID
+            valueFrom:
+              secretKeyRef:
+                name: watson
+                key: id
+          - name: WATSON_PWD
+            valueFrom:
+              secretKeyRef:
+                name: watson
+                key: pwd
+          - name: ODM_URL
+            valueFrom:
+              secretKeyRef:
+                name: odm
+                key: url
+          - name: JWT_AUDIENCE
+            valueFrom:
+              secretKeyRef:
+                name: jwt
+                key: audience
+          - name: JWT_ISSUER
+            valueFrom:
+              secretKeyRef:
+                name: jwt
+                key: issuer
