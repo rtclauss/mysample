@@ -6,6 +6,7 @@
         <auth-method>MP-JWT</auth-method>
         <realm-name>MP-JWT</realm-name>
     </login-config>
+    <!-- 
     <security-role>
         <description>Group with read-only access to stock portfolios</description>
         <role-name>StockViewer</role-name>
@@ -55,4 +56,5 @@
             <role-name>StockTrader</role-name>
         </auth-constraint>
     </security-constraint>
+     -->
 </web-app>

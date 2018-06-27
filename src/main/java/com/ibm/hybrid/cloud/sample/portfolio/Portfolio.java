@@ -21,6 +21,7 @@ package com.ibm.hybrid.cloud.sample.portfolio;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.annotation.ManagedBean;
+import javax.annotation.security.RolesAllowed;
 import javax.jms.JMSException;
 import javax.jms.Queue;
 import javax.jms.QueueConnection;
@@ -115,7 +116,7 @@ public class Portfolio extends Application {
 	@GET
 	@Path("/")
 	@Produces("application/json")
-//	@RolesAllowed({"StockTrader", "StockViewer"}) //Couldn't get this to work; had to do it through the web.xml instead :(
+	@RolesAllowed({"StockTrader", "StockViewer"}) //Couldn't get this to work; had to do it through the web.xml instead :(
 	public JsonArray getPortfolios() throws SQLException {
 		JsonArrayBuilder builder = Json.createArrayBuilder();
 		int count = 0;
@@ -155,7 +156,7 @@ public class Portfolio extends Application {
 	@Path("/{owner}")
 	@Produces("application/json")
 	@Counted(monotonic=true, name="portfolios", displayName="Stock Trader portfolios", description="Number of portfolios created in the Stock Trader applications")
-//	@RolesAllowed({"StockTrader"}) //Couldn't get this to work; had to do it through the web.xml instead :(
+	@RolesAllowed({"StockTrader"}) //Couldn't get this to work; had to do it through the web.xml instead :(
 	public JsonObject createPortfolio(@PathParam("owner") String owner) throws SQLException {
 		JsonObject portfolio = null;
 		if (owner != null) {
@@ -187,7 +188,7 @@ public class Portfolio extends Application {
 	@Path("/{owner}")
 	@Produces("application/json")
 	@Transactional(TxType.REQUIRED) //two-phase commit (XA) across JDBC and JMS
-//	@RolesAllowed({"StockTrader", "StockViewer"}) //Couldn't get this to work; had to do it through the web.xml instead :(
+	@RolesAllowed({"StockTrader", "StockViewer"}) //Couldn't get this to work; had to do it through the web.xml instead :(
 	public JsonObject getPortfolio(@PathParam("owner") String owner, @Context HttpServletRequest request) throws IOException, SQLException {
 		JsonObject newPortfolio = null;
 
@@ -323,7 +324,7 @@ public class Portfolio extends Application {
 	@Path("/{owner}")
 	@Produces("application/json")
 	@Transactional(TxType.REQUIRED) //two-phase commit (XA) across JDBC and JMS
-//	@RolesAllowed({"StockTrader"}) //Couldn't get this to work; had to do it through the web.xml instead :(
+	@RolesAllowed({"StockTrader"}) //Couldn't get this to work; had to do it through the web.xml instead :(
 	public JsonObject updatePortfolio(@PathParam("owner") String owner, @QueryParam("symbol") String symbol, @QueryParam("shares") int shares, @Context HttpServletRequest request) throws IOException, SQLException {
 		double commission = processCommission(owner);
 
@@ -375,7 +376,7 @@ public class Portfolio extends Application {
 	@Path("/{owner}/feedback")
 	@Consumes("application/json")
 	@Produces("application/json")
-//	@RolesAllowed({"StockTrader"}) //Couldn't get this to work; had to do it through the web.xml instead :(
+	@RolesAllowed({"StockTrader"}) //Couldn't get this to work; had to do it through the web.xml instead :(
 	public JsonObject submitFeedback(@PathParam("owner") String owner, JsonObject input) throws IOException, SQLException {
 		String sentiment = "Unknown";
 		try {
