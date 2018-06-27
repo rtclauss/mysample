@@ -319,6 +319,7 @@
                                 <default.http.port>${testServerHttpPort}</default.http.port>
                                 <default.https.port>${testServerHttpsPort}</default.https.port>
                                 <app.location>${project.artifactId}-${project.version}.war</app.location>
+                                <server.start.wait.time>60</server.start.wait.time>
                             </bootstrapProperties>
                             <installAppPackages>project</installAppPackages>
                         </configuration>
@@ -372,6 +373,7 @@
                                 <default.http.port>${testServerHttpPort}</default.http.port>
                                 <default.https.port>${testServerHttpsPort}</default.https.port>
                                 <app.location>${project.artifactId}-${project.version}.war</app.location>
+                                <server.start.wait.time>60</server.start.wait.time>
                             </bootstrapProperties>
                             <installAppPackages>project</installAppPackages>
                         </configuration>
