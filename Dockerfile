@@ -1,7 +1,7 @@
 FROM websphere-liberty:microProfile
 MAINTAINER IBM Java engineering at IBM Cloud
 COPY /target/liberty/wlp/usr/servers/defaultServer /config/
-COPY /target/liberty/wlp/usr/shared/resources /config/resources/
+#COPY /target/liberty/wlp/usr/shared/resources /config/resources/
 #COPY /src/main/liberty/config/jvmbx.options /config/jvm.options
 # Install required features if not present, install APM Data Collector
 RUN installUtility install --acceptLicense defaultServer
