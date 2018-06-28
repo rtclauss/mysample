@@ -74,6 +74,7 @@
             <version>1.0.4</version>
             <scope>test</scope>
         </dependency>
+        <!--
         <dependency>
             <groupId>com.ibm.runtimetools</groupId>
             <artifactId>javametrics-agent</artifactId>
@@ -94,6 +95,7 @@
             <scope>provided</scope>
             <type>war</type>
         </dependency>
+        -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
