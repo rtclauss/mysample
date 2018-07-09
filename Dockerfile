@@ -4,6 +4,12 @@ COPY /target/liberty/wlp/usr/servers/defaultServer /config/
 #COPY /target/liberty/wlp/usr/shared/resources /config/resources/
 #COPY /src/main/liberty/config/jvmbx.options /config/jvm.options
 # Install required features if not present, install APM Data Collector
+
+## Copy in portfolio prereqs:
+COPY lib/db2jcc4.jar /config/db2jcc4.jar
+COPY lib/wmq.jmsra.rar /config/wmq.jmsra.rar
+
+
 RUN installUtility install --acceptLicense defaultServer
 # Upgrade to production license if URL to JAR provided
 ARG LICENSE_JAR_URL
