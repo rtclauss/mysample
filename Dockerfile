@@ -6,8 +6,9 @@ COPY /target/liberty/wlp/usr/servers/defaultServer /config/
 # Install required features if not present, install APM Data Collector
 
 ## Copy in portfolio prereqs:
-COPY lib/db2jcc4.jar /config/db2jcc4.jar
-COPY lib/wmq.jmsra.rar /config/wmq.jmsra.rar
+
+## These two lines could be merged, might not be much gain.
+COPY /lib/db2jcc4.jar,/lib/wmq.jmsra.rar /config/
 
 
 RUN installUtility install --acceptLicense defaultServer
