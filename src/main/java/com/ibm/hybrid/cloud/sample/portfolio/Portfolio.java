@@ -81,7 +81,7 @@ import java.util.logging.Logger;
 
 @ApplicationPath("/")
 @Path("/")
-@ManagedBean //enable interceptors like @Transactional (note you need managedBeans-1.0 server.xml
+@ManagedBean("portfolio") //enable interceptors like @Transactional (note you need managedBeans-1.0 server.xml
 // feature,
 // and WEB-INF/beans.xml in war)
 /** This version stores the Portfolios via JDBC to DB2 (or whatever JDBC provider is defined in your server.xml).
